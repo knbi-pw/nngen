@@ -33,7 +33,7 @@ def Gemm(visitor, node,
                 len(visitor.consumers[src]) == 1):
 
             shape = visitor.visit(src_node.input[1])
-            if len(shape) == 2:
+            if shape.shape[0] == 2:
                 src_obj = reshape.Reshape(visitor, src_node, no_transpose=True)
                 srcs.append(src_obj)
                 continue
